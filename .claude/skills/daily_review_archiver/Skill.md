@@ -1,6 +1,6 @@
 ---
 name: daily_review_archiver
-description: This skill should be used when the user says "复盘", "Archive", "总结今天" to archive daily activities to L1_Episodic/01-Daily/. Includes optional RAG indexing for high-value content.
+description: This skill should be used when the user says "复盘", "Archive", "总结今天" to archive daily activities to L1_长期记忆/01-Daily/. Includes optional RAG indexing for high-value content.
 version: v3.5
 last_updated: 2026-03-20
 ---
@@ -97,7 +97,7 @@ last_updated: 2026-03-20
                r"(\w+[\s\-]?\d+\.?\d*).{0,30}(发布|上线|推出|更新)",
                r"(Claude|GPT|Gemini|MiniMax|Qwen|Kling|Seedance).{0,50}(新功能|新模型|版本)"
            ],
-           "target_dir": "L2_Procedural/knowledge/ai-models/",
+           "target_dir": "L2_知识库/knowledge/ai-models/",
            "template": "ai-model-template.md"
        },
        {
@@ -108,7 +108,7 @@ last_updated: 2026-03-20
                r"发现.{0,20}(工具|软件|平台)(.+?)(?=
 |$)"
            ],
-           "target_dir": "L2_Procedural/knowledge/tools/",
+           "target_dir": "L2_知识库/knowledge/tools/",
            "template": "tool-template.md"
        },
        {
@@ -120,7 +120,7 @@ last_updated: 2026-03-20
                r"规律[是|:](.+?)(?=
 |$)"
            ],
-           "target_dir": "L2_Procedural/knowledge/patterns/",
+           "target_dir": "L2_知识库/knowledge/patterns/",
            "template": "pattern-template.md"
        }
    ]
@@ -174,7 +174,7 @@ last_updated: 2026-03-20
    ```python
    Skill({
      skill: "record",
-     args: "--mode skill结果 --skill daily_review_archiver --content '日复盘完成：YYYY-MM-DD，归档到 L1_Episodic/01-Daily/'"
+     args: "--mode skill结果 --skill daily_review_archiver --content '日复盘完成：YYYY-MM-DD，归档到 L1_长期记忆/01-Daily/'"
    })
    ```
 
@@ -255,7 +255,7 @@ python tools/memory_search/store_to_rag.py \
   --domain "Seedance" \
   --context "官方API未开放，决定先绕过" \
   --date "2026-03-16" \
-  --source "L1_Episodic/01-Daily/2026-03-16.md"
+  --source "L1_长期记忆/01-Daily/2026-03-16.md"
 ```
 
 **存储后输出：**

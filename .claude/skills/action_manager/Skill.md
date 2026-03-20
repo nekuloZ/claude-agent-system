@@ -68,7 +68,7 @@ last_updated: 2026-03-18
 - `.current_task.json`（当前激活任务）
 - `.active_project.json`（项目上下文）
 - `habit_data.json`（习惯数据）
-- `L3_User/01-Identity/`（用户偏好）
+- `L3_用户档案/01-Identity/`（用户偏好）
 
 ### 场景感知的能力增强
 

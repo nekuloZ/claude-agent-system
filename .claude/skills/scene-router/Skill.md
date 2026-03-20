@@ -114,7 +114,7 @@ if (match.matched) {
 
 ### learning 场景
 - L0: `scratchpad.md`
-- L3: `L3_User/03-Learning/Language/`
+- L3: `L3_用户档案/03-Learning/Language/`
 - L3: `L3_Semantic/language/`
 
 ### operation 场景

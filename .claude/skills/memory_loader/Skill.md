@@ -403,14 +403,14 @@ def extract_keywords(query):
 
 | 匹配条件 | 预加载文件夹 | 优先级 |
 |---------|-------------|--------|
-| 提及项目名 | `L1_Episodic/02-Projects/` | P0 |
-| 提及人名 | `L1_Episodic/03-Relationships/` | P0 |
-| 提及日期 | `L1_Episodic/01-Daily/` | P0 |
-| 提及周数 | `L1_Episodic/04-Weekly/` | P0 |
-| 提及课题 | `L3_User/02-Themes/` | P0 |
-| 提及学习 | `L3_User/03-Learning/` | P0 |
-| 提及术语 | `L3_User/04-Definitions/` | P1 |
-| 提及技能 | `L2_Procedural/reference/` | P1 |
+| 提及项目名 | `L1_长期记忆/02-Projects/` | P0 |
+| 提及人名 | `L1_长期记忆/03-Relationships/` | P0 |
+| 提及日期 | `L1_长期记忆/01-Daily/` | P0 |
+| 提及周数 | `L1_长期记忆/04-Weekly/` | P0 |
+| 提及课题 | `L3_用户档案/02-Themes/` | P0 |
+| 提及学习 | `L3_用户档案/03-Learning/` | P0 |
+| 提及术语 | `L3_用户档案/04-Definitions/` | P1 |
+| 提及技能 | `L2_知识库/reference/` | P1 |
 
 ### 2.2 Obsidian 双链预加载（块级加载）
 
@@ -617,7 +617,7 @@ def semantic_search_fallback(query, top_k=5) -> tuple[list, list]:
         results = call_embedding_api(
             query=query,
             filters={
-                "folders": ["L1_Episodic", "L0_Working"],
+                "folders": ["L1_长期记忆", "L0_工作区"],
                 "exclude": [".data", "node_modules"]
             },
             top_k=top_k
@@ -802,7 +802,7 @@ result = load_memory(
 {
   "loaded_files": [
     {
-      "path": "L1_Episodic/01-Daily/2026-03-18.md",
+      "path": "L1_长期记忆/01-Daily/2026-03-18.md",
       "priority": "P0",
       "content_summary": "Jarvis v5.0 Rules Architecture 完成，skills 联动..."
       # content 字段不出现，节省 ~800 tokens
@@ -829,21 +829,21 @@ result = load_memory(
 {
   "loaded_files": [
     {
-      "path": "L0_Working/scratchpad.md",
+      "path": "L0_工作区/scratchpad.md",
       "priority": "P0",
       "source": "stage0_auto",
       "tokens": 420,
       "content_summary": "今日完成：记忆系统架构设计..."
     },
     {
-      "path": "L1_Episodic/02-Projects/Jarvis系统.md",
+      "path": "L1_长期记忆/02-Projects/Jarvis系统.md",
       "priority": "P0",
       "source": "stage2_keyword_match",
       "tokens": 310,
       "linked_from": ["scratchpad.md"]
     },
     {
-      "path": "L3_User/02-Themes/克服拖延.md",
+      "path": "L3_用户档案/02-Themes/克服拖延.md",
       "priority": "P1",
       "source": "stage2_wikilink",
       "tokens": 180,

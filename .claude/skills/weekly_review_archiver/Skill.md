@@ -67,7 +67,7 @@ last_updated: 2026-03-20
 
 ### Step 3: 更新项目进度
 
-1. 扫描 `L1_Episodic/Projects/*.md`
+1. 扫描 `L1_长期记忆/Projects/*.md`
 2. 汇总本周进展：一句话总结、Overall Completion 更新、下周重点目标
 
 ### Step 4: 检查停滞任务
@@ -123,7 +123,7 @@ last_updated: 2026-03-20
 ```python
 Skill({
   skill: "record",
-  args: "--mode skill结果 --skill weekly_review_archiver --content '周归档完成：YYYY-Www，生成周报 L1_Episodic/Weekly_Logs/YYYY-Www.md，scratchpad 已重置'"
+  args: "--mode skill结果 --skill weekly_review_archiver --content '周归档完成：YYYY-Www，生成周报 L1_长期记忆/Weekly_Logs/YYYY-Www.md，scratchpad 已重置'"
 })
 ```
 
@@ -135,7 +135,7 @@ Skill({
 ✅ 周归档完成！
 
 📊 本周总结：[一句话概括]
-📁 周报位置：L1_Episodic/04-Weekly/YYYY-Www.md
+📁 周报位置：L1_长期记忆/04-Weekly/YYYY-Www.md
 📈 项目进度已更新
 ⚡ 能量优化建议已生成
 🎯 目标文件已更新

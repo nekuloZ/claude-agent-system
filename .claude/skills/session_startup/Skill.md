@@ -266,11 +266,11 @@ Seedance2.0 上次卡在视频接口对接，API 文档还没看完。
 
 | 内容 | 路径 |
 |------|------|
-| 日报 | `L1_Episodic/01-Daily/YYYY-MM-DD.md` |
-| 日报JSON | `L1_Episodic/01-Daily/.data/YYYY-MM-DD.json` |
-| 项目 | `L1_Episodic/02-Projects/{{项目名}}.md` |
-| 关系 | `L1_Episodic/03-Relationships/{{人名}}.md` |
-| 主题 | `L3_User/02-Themes/{{主题名}}.md` |
+| 日报 | `L1_长期记忆/01-Daily/YYYY-MM-DD.md` |
+| 日报JSON | `L1_长期记忆/01-Daily/.data/YYYY-MM-DD.json` |
+| 项目 | `L1_长期记忆/02-Projects/{{项目名}}.md` |
+| 关系 | `L1_长期记忆/03-Relationships/{{人名}}.md` |
+| 主题 | `L3_用户档案/02-Themes/{{主题名}}.md` |
 
 ---
 
