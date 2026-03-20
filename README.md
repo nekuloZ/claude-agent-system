@@ -88,11 +88,16 @@ cd my-agent-system
 
 ## 相关文档
 
+### 项目文档 (docs/)
 - **设计文档**：`docs/plans/2026-03-20-agent-system-design.md`
 - **Skills 清单**：`docs/skills-inventory.md`
 - **环境配置**：`docs/setup-guide.md`
-- **系统总览**：`记忆库/L2_知识库/核心文档/系统总览.md`
-- **Hooks 参考**：`记忆库/L2_知识库/参考文档/hooks系统.md`
+- **macOS 适配**：`docs/macos-adaptation.md`
+
+### 记忆库参考文档 (记忆库/L2_知识库/参考文档/)
+- **文件路径规范**：`记忆库/L2_知识库/参考文档/文件路径规范.md`
+- **Obsidian 使用指南**：`记忆库/L2_知识库/参考文档/obsidian使用指南.md`
+- **记忆检索策略**：`记忆库/L2_知识库/参考文档/记忆检索策略.md`
 
 ---
 
