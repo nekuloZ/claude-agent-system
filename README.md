@@ -98,6 +98,7 @@ cd my-agent-system
 - **文件路径规范**：`记忆库/L2_知识库/参考文档/文件路径规范.md`
 - **Obsidian 使用指南**：`记忆库/L2_知识库/参考文档/obsidian使用指南.md`
 - **记忆检索策略**：`记忆库/L2_知识库/参考文档/记忆检索策略.md`
+- **Smart Web Router 设计**：`记忆库/L2_知识库/参考文档/smart-web-router设计.md`
 
 ---
 
