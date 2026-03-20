@@ -1,0 +1,7 @@
+{
+  "skill_name": "theme-insight-tracker",
+  "current_version": "v1.0",
+  "versions": [
+    {"version": "v1.0", "date": "2026-03-19", "type": "initial", "summary": "Phase 2 新增：主题洞察追踪器", "changes": ["检测洞察表达（我发现/我决定/我擅长/顿悟）", "自动创建/更新 L3_User/02-Themes/ 主题文件", "支持块引用链接 [[文档#^块ID]]", "建立证据链与Daily的双向关联", "主题层级定义（1-5级洞察深度）"], "breaking_changes": false}
+  ]
+}

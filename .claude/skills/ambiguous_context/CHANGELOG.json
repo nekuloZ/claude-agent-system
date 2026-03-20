@@ -1,0 +1,12 @@
+{
+  "versions": [
+    {
+      "version": "1.0",
+      "date": "2026-02-25",
+      "changes": [
+        "Initial release - 模糊信息处理 Skill",
+        "支持项目/文件/时间/操作模糊类型检测"
+      ]
+    }
+  ]
+}

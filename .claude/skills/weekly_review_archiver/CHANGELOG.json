@@ -1,0 +1,10 @@
+{
+  "skill_name": "weekly-review-archiver",
+  "current_version": "v2.4",
+  "versions": [
+    {"version": "v2.4", "date": "2026-03-20", "type": "minor", "summary": "适配scratchpad v5.2结构", "changes": ["更新数据路径为01-Daily/.data/", "Step 7改为重置而非清空", "保留归档摘要区历史记录", "更新周报保存路径为04-Weekly/"], "breaking_changes": false},
+    {"version": "v2.2", "date": "2026-02-04", "type": "minor", "summary": "新增清空scratchpad逻辑", "changes": ["周复盘时清空scratchpad", "开始新一周"], "breaking_changes": false},
+    {"version": "v2.1", "date": "2026-01-27", "type": "minor", "summary": "新增metrics_goals.md更新", "changes": ["周归档时自动标记本周目标完成情况", "建议下周目标"], "breaking_changes": false},
+    {"version": "v2.0", "date": "2026-01-03", "type": "initial", "summary": "初始版本", "changes": [], "breaking_changes": false}
+  ]
+}

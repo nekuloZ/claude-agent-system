@@ -1,0 +1,311 @@
+{
+  "skill_name": "session-startup",
+  "current_version": "v5.2",
+  "versions": [
+    {
+      "version": "v5.2",
+      "date": "2026-03-20",
+      "type": "minor",
+      "summary": "Token 控制优化 - scratchpad 行数限制 + 昨天日报提醒",
+      "changes": [
+        "scratchpad 限制最后 100 行加载（约 500 tokens），避免上下文膨胀",
+        "新增昨天日报 JSON 不存在时提醒用户归档",
+        "明确 Token 预算：Stage 0 ~1500 / Stage 1 ~800 / Stage 2 ~300",
+        "细化场景判断逻辑，增加 B+ 场景（未归档提醒）",
+        "快捷检查新增第 7、8 项"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v5.1",
+      "date": "2026-03-19",
+      "type": "minor",
+      "summary": "Phase 4: 渐进披露与块级加载优化",
+      "changes": [
+        "集成 memory_loader v2.0 块级加载能力",
+        "渐进披露策略: Stage 0→1→2→3 分层加载",
+        "Token 预算控制: ~1000/800/300 分档",
+        "双链预加载: 提取 [[文档]]/[[#标题]]/[[#^块ID]]",
+        "按需深度加载: 用户追问时加载完整内容"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v5.0",
+      "date": "2026-03-16",
+      "type": "major",
+      "summary": "记忆系统v5.0适配 - 集成memory_loader渐进式加载",
+      "changes": [
+        "集成 memory_loader skill 的渐进式加载机制 (Stage 0-3)",
+        "更新目录结构：L1_Episodic/01-Daily/、02-Projects/、03-Relationships/",
+        "更新L3路径：L3_User/02-Themes/、03-Learning/",
+        "新增语义搜索集成：质量不足时自动调用smart_search.py",
+        "新增路径映射表，方便新旧路径对照"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v4.0",
+      "date": "2026-03-14",
+      "type": "major",
+      "summary": "助理模式重构 - 从简报到助理汇报",
+      "changes": [
+        "输出形式重构：从文字简报改为结构化助理汇报",
+        "新增【今日焦点】区块：建议优先处理 + 预计耗时 + 下一步具体动作",
+        "新增【其他待办】列表，信息分层更清晰",
+        "新增助理风格要点：主动汇报、提供具体下一步、理由说明、主动询问支持",
+        "修复 habit_data.json 路径错误（L3_Semantic → L0_Working）",
+        "更新所有场景示例为助理模式",
+        "输出控制：5-8行结构化，不是大段文字"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v3.5",
+      "date": "2026-03-14",
+      "type": "minor",
+      "summary": "智能场景识别 - 新增日报 JSON 读取和跨天衔接",
+      "changes": [
+        "新增 Step 3 场景检测：区分'同一日多会话'、'新的一天首次对话'、'/clear恢复'三种场景",
+        "新增读取昨天日报 JSON：Daily_Logs/.data/{{昨天日期}}.json",
+        "新增 Step 4 项目上下文补充：读取 L1_Episodic/Projects/{{项目名}}.md",
+        "重构简报生成逻辑，按场景选择不同数据源",
+        "新增跨天任务延续场景简报示例",
+        "快捷检查新增场景判断和数据源确认项"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.4",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "简报逻辑优化 - 支持同一日多会话上下文",
+      "changes": [
+        "Step 3 明确从 scratchpad 提取'今日对话摘要'和'未闭环事项'",
+        "Step 4 重构简报结构：问候 + 今日已做 + 待办 + 建议",
+        "新增信息提取优先级表，指导简报内容组织",
+        "快捷检查新增确认项：是否包含'今天已经做了什么'",
+        "区分'同一日多会话'和'新的一天首次对话'两种简报示例"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "扩展触发词列表：早上好/中午好/晚上好/hey jarvis/hi jarvis/继续工作/新的一天",
+        "添加ALWAYS和MUST强调词",
+        "移除实现细节(SessionStart hook)"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.2",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "修复L0路径错误",
+      "changes": [
+        "修正 Step 3 文件路径，添加 记忆库/ 前缀",
+        "修复 scratchpad/kanban/habit_data/current_task 路径"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.1",
+      "date": "2026-03-10",
+      "type": "minor",
+      "summary": "SessionStart Hook 集成",
+      "changes": [
+        "添加预热模式",
+        "实现上下文预加载",
+        "解决/clear后上下文丢失问题"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.0",
+      "date": "2026-02-28",
+      "type": "major",
+      "summary": "意图矩阵集成",
+      "changes": [
+        "加载 dispatching-skills/intent_matrix.json",
+        "移除内置路由代码"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v2.9",
+      "date": "2026-02-12",
+      "type": "minor",
+      "summary": "强制读取核心文件",
+      "changes": [
+        "每次调用都读取.claude/*和L0业务数据",
+        "避免/clear或/compact后数据丢失"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.8",
+      "date": "2026-02-07",
+      "type": "patch",
+      "summary": "修复判断逻辑",
+      "changes": [
+        "从'是否首次对话'改为'是否需要智能引导'",
+        "检查数据完整性"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.7",
+      "date": "2026-02-07",
+      "type": "minor",
+      "summary": "启动时读取核心文件",
+      "changes": [
+        "读取 IDENTITY/SOUL/TOOLS/USER（~1800 tokens）",
+        "确保AI身份和配置正确加载"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.6",
+      "date": "2026-02-07",
+      "type": "patch",
+      "summary": "修复路径引用",
+      "changes": [
+        "user_profile 已迁移到 .claude/USER.md"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.5",
+      "date": "2026-02-06",
+      "type": "minor",
+      "summary": "习惯收集重构",
+      "changes": [
+        "委托给 habit_tracker skill 处理",
+        "简化职责分离"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.4",
+      "date": "2026-02-04",
+      "type": "minor",
+      "summary": "适配AI短期记忆",
+      "changes": [
+        "启动时读取scratchpad的'快速概览'section",
+        "了解用户当前状态"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.3",
+      "date": "2026-02-03",
+      "type": "minor",
+      "summary": "简报风格升级",
+      "changes": [
+        "从'复读待办清单'转向'秘书式洞察简报'",
+        "基于行为模式分析给出针对性建议"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.2",
+      "date": "2026-01-29",
+      "type": "minor",
+      "summary": "新增意图路由机制",
+      "changes": [
+        "在会话启动前按P0-P3优先级检测用户意图",
+        "自动调用对应skill，避免误判"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.1",
+      "date": "2026-01-29",
+      "type": "minor",
+      "summary": "新增无感习惯收集",
+      "changes": [
+        "早上时段（06-12点）自动询问睡眠/起床",
+        "自动计算时长并推断精力",
+        "更新habit_data.json"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.0",
+      "date": "2026-01-26",
+      "type": "major",
+      "summary": "重大重构",
+      "changes": [
+        "渐进式加载架构",
+        "引导决策引擎",
+        "上下文优化"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v1.5",
+      "date": "2026-01-24",
+      "type": "minor",
+      "summary": "新增洞察能力",
+      "changes": [
+        "读取 insight_index.json",
+        "识别并提示高频主题"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.4",
+      "date": "2026-01-19",
+      "type": "minor",
+      "summary": "适配habit_data.json历史队列结构",
+      "changes": [
+        "写入队列而非覆盖",
+        "检查昨天数据是否归档"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.3",
+      "date": "2026-01-18",
+      "type": "minor",
+      "summary": "移除能量时段概念",
+      "changes": [
+        "改为基于时间段+作息习惯的查表逻辑"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v1.2",
+      "date": "2026-01-17",
+      "type": "minor",
+      "summary": "修复上下文工程问题",
+      "changes": [
+        "添加habit_data.json",
+        "从USER.md读取routine规则",
+        "明确洗澡日判断流程"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.1",
+      "date": "2026-01-10",
+      "type": "patch",
+      "summary": "与CLAUDE.md同步优化",
+      "changes": [],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-01-06",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [],
+      "breaking_changes": false
+    }
+  ]
+}

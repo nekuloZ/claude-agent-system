@@ -1,0 +1,24 @@
+{
+  "skill_name": "record",
+  "current_version": "v8.3",
+  "versions": [
+    {"version": "v8.3", "date": "2026-03-20", "type": "patch", "summary": "记录完成后更新时间戳边界", "changes": ["快速模式末尾调用 update-last-record.js 写入 .last_record_ts.json", "供 stop-hook / command-parser 确定下次检测的分析起点"], "breaking_changes": false},
+    {"version": "v8.2", "date": "2026-03-20", "type": "minor", "summary": "适配scratchpad v5.2新结构", "changes": ["快速模式在今日对话摘要（头部）追加新条目", "归档摘要区移到底部", "更新old_string/new_string格式匹配新结构"], "breaking_changes": false},
+    {"version": "v8.1", "date": "2026-03-19", "type": "patch", "summary": "修复无内容记录逻辑：content=null时使用对话上下文", "changes": ["command-parser.js: 无内容时返回content=null而非占位符", "Skill.md: 新增Step 2明确区分两种情况（有内容vs无内容）", "无内容时自动从对话历史提取主题生成摘要", "更新示例展示两种情况的正确处理方式"], "breaking_changes": false},
+    {"version": "v8.0", "date": "2026-03-18", "type": "major", "summary": "双模式架构：快速模式直接执行+完整模式subagent", "changes": ["快速模式：简单记录直接主对话执行，减少90% token消耗", "完整模式：复杂场景（kanban同步/洞察分析）继续使用subagent", "command-parser.js添加handleDirectRecord，/record命令直接处理", "自动判断模式：基于kanban_action、mode类型、内容长度", "优化后简单记录仅需~300 tokens（原~2500 tokens）", "保持API兼容，其他skills调用方式不变"], "breaking_changes": false},
+    {"version": "v7.2", "date": "2026-03-17", "type": "major", "summary": "混合模式：subagent读取分析+主对话执行Edit", "changes": ["解决subagent无写入权限的根本问题", "subagent负责读取文件、分析、生成Edit指令(old_string+new_string)", "主对话仅执行精简Edit操作，不保留文件全文", "避免主对话上下文被大文件内容污染", "更新record-agent配置：移除Write/Edit权限，仅保留Read", "洞察判断逻辑：质量评估、主题匹配/新主题提取、重复检测"], "breaking_changes": true},
+    {"version": "v7.1", "date": "2026-03-17", "type": "patch", "summary": "使用专用record-agent subagent", "changes": ["创建.claude/agents/record-agent.md专用subagent配置", "配置permissionMode: acceptEdits确保文件写入权限", "移除对general-purpose类型的依赖", "解决subagent权限受限问题"], "breaking_changes": false},
+    {"version": "v7.0", "date": "2026-03-17", "type": "major", "summary": "重构为Subagent模式", "changes": ["主对话只发精简指令，不加载完整skill", "所有文件操作由subagent独立执行", "避免主对话上下文膨胀", "支持后台异步执行"], "breaking_changes": true},
+    {"version": "v6.4", "date": "2026-03-17", "type": "minor", "summary": "强制kanban同步机制", "changes": ["添加kanban同步检查表", "执行逻辑强制同时更新scratchpad和kanban", "禁止只写scratchpad不更新kanban"], "breaking_changes": false},
+    {"version": "v6.3", "date": "2026-03-13", "type": "minor", "summary": "优化触发准确度", "changes": ["重写description增强触发精准度", "添加ALWAYS和ANY强调词", "明确核心记忆工具定位"], "breaking_changes": false},
+    {"version": "v6.2", "date": "2026-02-12", "type": "minor", "summary": "添加执行入口指令", "changes": ["调用时直接执行写入", "不返回文档"], "breaking_changes": false},
+    {"version": "v6.1", "date": "2026-02-12", "type": "patch", "summary": "同步修复", "changes": ["添加 habit_tracker 和 session_startup 到关键 skills 列表"], "breaking_changes": false},
+    {"version": "v6.0", "date": "2026-02-05", "type": "major", "summary": "重构为底层写入工具", "changes": ["移除自动触发设计", "由 progress_tracker 在对话结束时调用"], "breaking_changes": true},
+    {"version": "v5.3", "date": "2026-02-05", "type": "minor", "summary": "卡点部分集成", "changes": ["集成 procrastination-buster 的三类障碍识别（情绪/实际/技能）"], "breaking_changes": false},
+    {"version": "v5.2", "date": "2026-02-05", "type": "minor", "summary": "新增两个section", "changes": ["Open Loops", "Blocked/Stuck 追踪未闭环事项和卡点"], "breaking_changes": false},
+    {"version": "v5.1", "date": "2026-02-04", "type": "minor", "summary": "新增关键节点识别规则", "changes": ["区分重要/次要节点", "实时记录原始素材"], "breaking_changes": false},
+    {"version": "v5.0", "date": "2026-02-04", "type": "major", "summary": "重构为AI短期记忆", "changes": ["scratchpad改为AI视角", "触发条件改为'AI判断需要记住'"], "breaking_changes": true},
+    {"version": "v4.2", "date": "2026-01-29", "type": "patch", "summary": "修复待办意图检测", "changes": [], "breaking_changes": false},
+    {"version": "v4.0", "date": "2026-01-24", "type": "major", "summary": "重构为底层写入工具", "changes": [], "breaking_changes": true}
+  ]
+}

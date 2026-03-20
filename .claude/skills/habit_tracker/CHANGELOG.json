@@ -1,0 +1,45 @@
+{
+  "skill_name": "habit-tracker",
+  "current_version": "v1.3",
+  "versions": [
+    {
+      "version": "v1.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "添加P1 PRIORITY强调",
+        "扩展触发词：睡了X小时/没洗澡/几点睡几点起",
+        "添加ALWAYS强制触发词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.2",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "更新元数据",
+      "changes": ["更新 last_updated"],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.1",
+      "date": "2026-02-12",
+      "type": "minor",
+      "summary": "添加执行入口章节",
+      "changes": [
+        "与 record v6.2 格式统一"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-02-06",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [],
+      "breaking_changes": false
+    }
+  ]
+}

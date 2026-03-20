@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "description": "Jarvis 场景路由配置 - 5场景智能触发映射",
+  "last_updated": "2026-03-18",
+  "scenes": {
+    "learning": {
+      "name": "学习场景",
+      "description": "语言学习、词汇管理、影子跟读等学习活动",
+      "skills": [
+        "vocabulary_manager",
+        "short_sentence_trainer",
+        "shadowing_manager"
+      ],
+      "preload_paths": [
+        "记忆库/L3_用户档案/03-Learning/Language/",
+        "记忆库/L3_Semantic/language/"
+      ],
+      "l0_files": [
+        "记忆库/L0_工作区/scratchpad.md"
+      ],
+      "confidence_threshold": 0.7,
+      "priority": "P1",
+      "auto_trigger": true
+    },
+    "operation": {
+      "name": "运营场景",
+      "description": "日报生成、数据导出、飞书操作等运营活动",
+      "skills": [
+        "daily_report",
+        "feishu_export",
+        "report_insight"
+      ],
+      "preload_paths": [
+        "记忆库/data/",
+        ".claude/skills/daily_report/",
+        "记忆库/L0_工作区/reports/"
+      ],
+      "l0_files": [
+        "记忆库/L0_工作区/scratchpad.md"
+      ],
+      "confidence_threshold": 0.8,
+      "priority": "P1",
+      "auto_trigger": true
+    },
+    "coding": {
+      "name": "代码编程",
+      "description": "代码编写、调试、项目开发等技术活动",
+      "skills": [],
+      "preload_paths": [
+        "projects/",
+        ".claude/skills/"
+      ],
+      "l0_files": [
+        "记忆库/L0_工作区/scratchpad.md",
+        ".claude/.active_project.json"
+      ],
+      "confidence_threshold": 0.7,
+      "priority": "P0",
+      "auto_trigger": false
+    },
+    "automation": {
+      "name": "自动化任务",
+      "description": "脚本编写、定时任务、批处理等自动化活动",
+      "skills": [],
+      "preload_paths": [
+        "scripts/",
+        "core/",
+        "tools/"
+      ],
+      "l0_files": [
+        "记忆库/L0_工作区/scratchpad.md"
+      ],
+      "confidence_threshold": 0.75,
+      "priority": "P2",
+      "auto_trigger": false
+    },
+    "assistant": {
+      "name": "助手场景（主场景）",
+      "description": "通用助手查询、日常任务管理、动作追踪、习惯记录等高频日常场景",
+      "skills": [
+        "task_manager",
+        "action_manager",
+        "app_launcher",
+        "habit_tracker",
+        "favorites_manager",
+        "progress_tracker",
+        "record"
+      ],
+      "preload_paths": [
+        "记忆库/L3_用户档案/01-Identity/",
+        "记忆库/L3_用户档案/02-Themes/",
+        "记忆库/L0_工作区/",
+        "tasks/"
+      ],
+      "l0_files": [
+        "记忆库/L0_工作区/scratchpad.md",
+        "记忆库/L0_工作区/next_actions_kanban.md",
+        "记忆库/L0_工作区/habit_data.json",
+        "记忆库/L0_工作区/.current_task.json",
+        ".claude/.active_project.json"
+      ],
+      "confidence_threshold": 0.45,
+      "priority": "P0",
+      "auto_trigger": true,
+      "is_default_scene": true
+    }
+  },
+  "global_settings": {
+    "signal_ttl_seconds": 300,
+    "max_preload_files": 10,
+    "context_budget_percent": 30
+  }
+}

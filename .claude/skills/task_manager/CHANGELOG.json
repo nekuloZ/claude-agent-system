@@ -1,0 +1,98 @@
+{
+  "skill_name": "task-manager",
+  "current_version": "v2.5",
+  "versions": [
+    {
+      "version": "v2.5",
+      "date": "2026-03-19",
+      "type": "minor",
+      "summary": "支持项目关联（可选）",
+      "changes": [
+        "创建任务时询问是否关联项目",
+        "支持记录 project 字段到 .current_task.json",
+        "任务数据结构中新增 project/output_files 字段",
+        "调用 action_manager 自动添加到 kanban"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.4",
+      "date": "2026-03-18",
+      "type": "minor",
+      "summary": "集成智能场景路由",
+      "changes": [
+        "添加自动触发检测逻辑",
+        "集成 scene-router 作为 assistant 场景核心组件",
+        "预加载当前任务、项目上下文、历史任务列表",
+        "增强场景感知：自动关联项目、感知进行中任务"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "添加L2层级和1-3天粒度明确标识",
+        "扩展触发词：新任务：XXX/切换到XXX任务",
+        "添加ALWAYS强制触发词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "添加L2层级和1-3天粒度明确标识",
+        "扩展触发词：新任务：XXX/切换到XXX任务",
+        "添加ALWAYS强制触发词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.2",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "更新元数据",
+      "changes": ["更新 last_updated"],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.1",
+      "date": "2026-03-10",
+      "type": "minor",
+      "summary": "上下文集成",
+      "changes": [
+        "检测 .active_project.json",
+        "任务自动归属到项目"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.0",
+      "date": "2026-02-11",
+      "type": "major",
+      "summary": "职责重构",
+      "changes": [
+        "转型为任务生命周期管理",
+        "Kanban操作移交给 action_manager"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-01-28",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [
+        "JSON驱动的任务管理"
+      ],
+      "breaking_changes": false
+    }
+  ]
+}

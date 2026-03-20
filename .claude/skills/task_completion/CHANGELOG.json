@@ -1,0 +1,13 @@
+{
+  "skill_name": "task-completion",
+  "current_version": "v1.6",
+  "versions": [
+    {"version": "v1.6", "date": "2026-03-19", "type": "minor", "summary": "支持L2/L3双链自动识别", "changes": ["新增Step 3B：自动识别任务使用的技术/工具/模式", "自动在README添加[[L2双链]]到使用技术章节", "自动在README添加[[L3双链]]到能力成长章节", "支持AI模型、工具、模式、心理主题等识别规则", "Phase 2 Obsidian双链活化系统"], "breaking_changes": false},
+    {"version": "v1.5", "date": "2026-03-19", "type": "minor", "summary": "支持项目README回写", "changes": ["检测 .current_task.json 中的 project 字段", "完成任务时自动追加到 projects/项目名/README.md", "在'最新进展'章节记录完成信息", "调用 action_manager 完成 kanban 并清理（归档到历史区域）"], "breaking_changes": false},
+    {"version": "v1.4", "date": "2026-03-13", "type": "minor", "summary": "优化触发准确度", "changes": ["重写description增强触发精准度", "扩展触发词覆盖：done/finished/archived/任务完成/搞定这个", "添加P0 HIGHEST PRIORITY强调", "添加IMMEDIATELY和ALWAYS强制触发词"], "breaking_changes": false},
+    {"version": "v1.3", "date": "2026-03-12", "type": "patch", "summary": "更新元数据", "changes": ["更新 last_updated"], "breaking_changes": false},
+    {"version": "v1.2", "date": "2026-02-06", "type": "minor", "summary": "新增 tasks 文件夹管理", "changes": ["完成时重命名 [进行中] 为 [已完成]"], "breaking_changes": false},
+    {"version": "v1.1", "date": "2026-01-24", "type": "minor", "summary": "适配方案A", "changes": ["专项处理后调用 record 统一记录"], "breaking_changes": false},
+    {"version": "v1.0", "date": "2026-01-24", "type": "initial", "summary": "从 record skill 拆分", "changes": [], "breaking_changes": false}
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "skill_name": "action-manager",
+  "current_version": "v3.4",
+  "versions": [
+    {
+      "version": "v3.4",
+      "date": "2026-03-18",
+      "type": "minor",
+      "summary": "集成智能场景路由，强化助手场景",
+      "changes": [
+        "添加自动触发检测逻辑",
+        "作为 assistant（助手场景）核心组件",
+        "预加载看板、当前任务、习惯数据",
+        "场景感知增强：智能上下文标记、重复检测、今日统计",
+        "支持批量待办智能拆分"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "改为即时模式，消除流程打断",
+      "changes": [
+        "移除'询问确认'步骤，改为立即写入看板",
+        "description添加 IMMEDIATELY 强调即时触发",
+        "扩展触发词：待办：XXX/TODO: XXX/别忘了XXX/有哪些待办",
+        "添加列选择规则表（进行中/今日待办/待办）",
+        "添加上下文读取失败处理（留空[]继续执行）",
+        "添加快捷检查清单和禁止事项",
+        "回复格式标准化：'已添加到[列]：动作 [上下文]'"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "改为即时模式，消除流程打断",
+      "changes": [
+        "移除'询问确认'步骤，改为立即写入看板",
+        "description添加 IMMEDIATELY 强调即时触发",
+        "扩展触发词：待办：XXX/TODO: XXX/别忘了XXX/有哪些待办",
+        "添加列选择规则表（进行中/今日待办/待办）",
+        "添加上下文读取失败处理（留空[]继续执行）",
+        "添加快捷检查清单和禁止事项",
+        "回复格式标准化：'已添加到[列]：动作 [上下文]'"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.2",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "添加L1层级和小时级粒度明确标识",
+        "扩展触发词：需要XXX/今天做什么/待办清单",
+        "添加ALWAYS强制触发词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "更新元数据",
+      "changes": ["更新 last_updated"],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "summary": "重命名 + 上下文集成",
+      "changes": [
+        "从 todo_manager 重命名为 action_manager",
+        "支持三层架构上下文关联 [项目::任务]",
+        "自动读取 .active_project.json 和 .current_task.json"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v2.0",
+      "date": "2026-02-11",
+      "type": "minor",
+      "summary": "职责重构",
+      "changes": [
+        "接管 Kanban 操作",
+        "移除与 task_manager 的重叠功能"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-01-28",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [
+        "支持待办识别、添加、归档提取"
+      ],
+      "breaking_changes": false
+    }
+  ]
+}

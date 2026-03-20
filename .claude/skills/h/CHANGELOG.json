@@ -1,0 +1,13 @@
+{
+  "skill_name": "h",
+  "current_version": "v1.6",
+  "versions": [
+    {"version": "v1.6", "date": "2026-02-27", "type": "minor", "summary": "新增 video_analyzer skill 触发词", "changes": ["B站视频分析"], "breaking_changes": false},
+    {"version": "v1.5", "date": "2026-02-25", "type": "minor", "summary": "新增语言学习skills触发词", "changes": ["vocabulary_manager", "short_sentence_trainer", "shadowing_manager"], "breaking_changes": false},
+    {"version": "v1.4", "date": "2026-02-12", "type": "minor", "summary": "改为触发词索引", "changes": ["你说什么→会触发什么"], "breaking_changes": false},
+    {"version": "v1.3", "date": "2026-02-12", "type": "minor", "summary": "大幅简化", "changes": ["只保留触发词表"], "breaking_changes": false},
+    {"version": "v1.2", "date": "2026-02-12", "type": "patch", "summary": "优化输出格式", "changes": [], "breaking_changes": false},
+    {"version": "v1.1", "date": "2026-02-12", "type": "minor", "summary": "触发命令从 /help 改为 /h", "changes": [], "breaking_changes": true},
+    {"version": "v1.0", "date": "2026-02-12", "type": "initial", "summary": "初始版本", "changes": [], "breaking_changes": false}
+  ]
+}

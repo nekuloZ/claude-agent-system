@@ -1,0 +1,12 @@
+{
+  "versions": [
+    {
+      "version": "1.0",
+      "date": "2026-03-18",
+      "changes": [
+        "Initial release - Jarvis 智能场景路由系统",
+        "5场景自动触发与上下文预加载"
+      ]
+    }
+  ]
+}

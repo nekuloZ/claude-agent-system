@@ -1,0 +1,73 @@
+{
+  "skill_name": "memory_loader",
+  "current_version": "v2.2",
+  "versions": [
+    {
+      "version": "v2.2",
+      "date": "2026-03-19",
+      "type": "minor",
+      "summary": "上下文工程优化：熔断保护、观察遮蔽、测试策略",
+      "changes": [
+        "熔断保护：Gemini API 失败 2 次后熔断，防止级联故障",
+        "显式降级通知：Stage 3 跳过时写入 warnings，不再静默",
+        "主题关键词外部化：从 theme_keywords.json 加载，便于动态扩展",
+        "质量模式：quality_mode 参数支持 strict/normal/lenient",
+        "观察遮蔽模式：output_mode='reference' 只返回路径摘要，节省 token",
+        "修复双重正则：estimate_tokens 只扫描一次英文单词",
+        "修复双重质量评估：is_quality_sufficient 在 load_memory 中只调用一次",
+        "L0 文件缺失处理：不中断流程，写入 warnings",
+        "块 ID 不存在处理：返回警告而非空串",
+        "新增测试策略章节：单元测试、集成测试、边界场景清单",
+        "返回结构扩展：新增 warnings 字段，调用方可感知所有异常"
+      ],
+      "breaking_changes": false,
+      "migration_notes": [
+        "新增 theme_keywords.json 配置文件（非必须，有内置 fallback）",
+        "返回字典新增 warnings 字段，旧调用方可安全忽略"
+      ]
+    },
+    {
+      "version": "v2.1",
+      "date": "2026-03-19",
+      "type": "minor",
+      "summary": "智能渐进披露: Token优化与相关性过滤",
+      "changes": [
+        "真实Token估算: 中英文分别计算,精确控制预算",
+        "动态预算分配: 根据上下文使用率自动调整预算",
+        "相关性过滤: 只加载与query相关的双链,减少50%+加载量",
+        "质量评估: 加载后评估内容质量,不足时自动触发Stage 3",
+        "加载反馈: 返回实际token消耗和加载质量报告"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v2.0",
+      "date": "2026-03-19",
+      "type": "major",
+      "summary": "Phase 4: 块级加载与双链优化",
+      "changes": [
+        "支持三种链接类型: [[文档]]/[[文档#标题]]/[[文档#^块ID]]",
+        "块级加载: 只加载精确块(±50字上下文)",
+        "标题级加载: 加载指定标题下内容",
+        "文档级加载: 只加载 frontmatter + 200字摘要",
+        "Token 预算控制: 500/800/300 分档",
+        "渐进披露: Stage 0→1→2→3 按需加载"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-03-16",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [
+        "实现渐进式按需加载机制",
+        "Stage 0-3 加载策略",
+        "基于文件夹路径的预加载",
+        "Obsidian 双链预加载支持",
+        "语义搜索后备机制"
+      ],
+      "breaking_changes": false
+    }
+  ]
+}

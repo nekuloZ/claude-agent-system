@@ -1,0 +1,15 @@
+{
+  "versions": [
+    {
+      "version": "2.0",
+      "date": "2026-03-18",
+      "changes": [
+        "Initial release of Mode System v2.0",
+        "Support for 5 modes: dev, learn, ops, assist, auto",
+        "Slash command parsing and routing",
+        "Context budget management per mode",
+        "Sub-agent configuration loading"
+      ]
+    }
+  ]
+}

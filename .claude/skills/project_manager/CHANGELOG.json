@@ -1,0 +1,51 @@
+{
+  "skill_name": "project-manager",
+  "current_version": "v1.3",
+  "versions": [
+    {
+      "version": "v1.3",
+      "date": "2026-03-20",
+      "type": "minor",
+      "summary": "添加记忆文档文件生命周期管理",
+      "changes": [
+        "新增记忆文档文件路径：记忆库/L1_长期记忆/02-Projects/{项目名}.md",
+        "创建项目时自动创建记忆文档（Obsidian格式，含frontmatter模板）",
+        "关键文件说明表添加记忆文档条目",
+        "更新description说明项目文件完整生命周期职责"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.2",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "添加L3层级明确标识",
+        "扩展触发词：新建项目/查看所有项目/有哪些项目",
+        "添加ALWAYS强制触发词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "更新元数据",
+      "changes": ["更新 last_updated"],
+      "breaking_changes": false
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-03-10",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [
+        "三层架构 L3 项目管理层",
+        "支持上下文切换和 Hook 集成"
+      ],
+      "breaking_changes": false
+    }
+  ]
+}

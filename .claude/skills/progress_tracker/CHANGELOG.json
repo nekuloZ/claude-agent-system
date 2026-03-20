@@ -1,0 +1,68 @@
+{
+  "skill_name": "progress-tracker",
+  "current_version": "v3.3",
+  "versions": [
+    {
+      "version": "v3.3",
+      "date": "2026-03-13",
+      "type": "minor",
+      "summary": "优化触发准确度",
+      "changes": [
+        "重写description增强触发精准度",
+        "扩展触发词：休息了/先做到这/结束了/聊完了/bye",
+        "明确conversation pauses/ends场景",
+        "添加ALWAYS和MUST强调词"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.2",
+      "date": "2026-03-12",
+      "type": "patch",
+      "summary": "更新元数据",
+      "changes": ["更新 last_updated"],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.1",
+      "date": "2026-02-12",
+      "type": "minor",
+      "summary": "重构 - 简化触发词 + 添加执行入口",
+      "changes": [
+        "简化触发词",
+        "添加执行入口"
+      ],
+      "breaking_changes": false
+    },
+    {
+      "version": "v3.0",
+      "date": "2026-02-05",
+      "type": "major",
+      "summary": "新增对话总结功能",
+      "changes": [
+        "自动生成对话摘要",
+        "节点判断",
+        "选择性写入"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v2.0",
+      "date": "2026-02-04",
+      "type": "major",
+      "summary": "适配新的scratchpad格式",
+      "changes": [
+        "记录改为整合到section结构"
+      ],
+      "breaking_changes": true
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-02-03",
+      "type": "initial",
+      "summary": "初始版本",
+      "changes": [],
+      "breaking_changes": false
+    }
+  ]
+}
