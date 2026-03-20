@@ -89,6 +89,7 @@ cd my-agent-system
 ## 相关文档
 
 ### 项目文档 (docs/)
+- **配置清单**：`docs/configuration-checklist.md` ← **新用户先看这个**
 - **设计文档**：`docs/plans/2026-03-20-agent-system-design.md`
 - **Skills 清单**：`docs/skills-inventory.md`
 - **环境配置**：`docs/setup-guide.md`
