@@ -1,5 +1,5 @@
 # Agent 系统
-_最后更新：2026-03-20_
+_最后更新：2026-03-21_
 
 ## 项目目标
 
@@ -42,9 +42,16 @@ _最后更新：2026-03-20_
 ├── CLAUDE.md              # 系统入口，AI 行为规范
 ├── settings.json          # Hooks 配置
 ├── hooks/                 # 事件钩子（Node.js）
-├── skills/                # 本地 Skills
+├── skills/                # 本地 Skills（18个，随仓库克隆）
 ├── rules/                 # 模块化规则
 └── mode-system/           # 5模式配置
+
+global-skills/              # 全局 Skills（23个，需手动复制到 ~/.claude/skills/）
+├── obsidian-markdown/     # P0 必装：Markdown 写入
+├── smart-web-router/      # P0 必装：网络搜索路由
+├── brainstorming/         # P1 推荐：创意工作
+├── planning-with-files/   # P1 推荐：制定计划
+└── ...                    # 其他 Skill，按需选用
 
 记忆库/                     # 记忆系统（中文命名）
 ├── L0_工作区/              # 工作层（今日记录、待办、习惯数据）
@@ -68,7 +75,31 @@ cd my-agent-system
 
 让你的 Claude Code agent 读取 `docs/setup-guide.md`，按清单检查并安装依赖。
 
-### 3. 自定义个人信息
+### 3. 安装全局 Skills
+
+本仓库包含 23 个全局 Skill，位于 `global-skills/` 目录。需手动复制到 Claude Code 全局目录：
+
+```bash
+# macOS/Linux
+cp -r global-skills/* ~/.claude/skills/
+
+# Windows PowerShell
+Copy-Item -Recurse -Force "global-skills\*" "$env:USERPROFILE\.claude\skills\"
+```
+
+**P0 必装**（系统核心依赖）：
+- `obsidian-markdown` - Markdown 文件写入
+- `smart-web-router` - 网络搜索/抓取路由
+
+**P1 推荐**（开发工作流）：
+- `brainstorming`, `planning-with-files`, `writing-plans`
+- `requesting-code-review`, `receiving-code-review`
+- `systematic-debugging`, `test-driven-development`
+- `docx`, `xlsx`, `pptx`, `pdf` - Office 文件处理
+
+其余 Skill 按需选用，详见 `docs/configuration-checklist.md`。
+
+### 4. 自定义个人信息
 
 修改以下文件中的 `AI-TODO` 标注：
 - `.claude/CLAUDE.md` - 系统入口
