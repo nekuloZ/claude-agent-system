@@ -1,0 +1,13 @@
+{
+  "agent_id": "jarvis_core",
+  "agent_name": "Jarvis核心助手",
+  "user_id": "nekulo",
+  "role_description": "记忆系统中枢 & 跨Agent协调器",
+  "supabase": {
+    "project_url": "https://bvaykseswlcysfqgxldz.supabase.co",
+    "anon_key": "sb_publishable_Fqj3I811KnkierwZ9NY5_Q_Yw6v9F8I"
+  },
+  "sync_interval_seconds": 600,
+  "local_mode": false,
+  "version": "1.0"
+}

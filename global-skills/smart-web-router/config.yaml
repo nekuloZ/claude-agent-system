@@ -1,0 +1,209 @@
+# Smart Web Router 配置文件
+# 路由决策规则与工具配置
+
+version: "1.0.0"
+
+# ========== URL 分类表 ==========
+url_categories:
+  # 国内直连（无需代理）
+  direct:
+    domains:
+      - github.com
+      - bilibili.com
+      - zhihu.com
+      - juejin.cn
+      - csdn.net
+      - oschina.net
+      - gitee.com
+      - jianshu.com
+      - weibo.com
+      - baidu.com
+      - sina.com
+      - 163.com
+      - qq.com
+      - taobao.com
+      - tmall.com
+      - jd.com
+      - xiaohongshu.com
+      - douyin.com
+      - kuaishou.com
+      - google.com           # 视网络环境
+      - stackoverflow.com
+      - stackexchange.com
+      - dev.to
+      - arxiv.org
+      - npmjs.com
+      - pypi.org
+      - docker.com
+      - kubernetes.io
+      - docs.python.org
+      - developer.mozilla.org
+    patterns:                # 通配模式
+      - "*.github.io"
+      - "*.gitee.io"
+      - "*.csdn.net"
+
+  # 需要代理的域名
+  proxy:
+    domains:
+      - twitter.com
+      - x.com
+      - t.co
+      - youtube.com
+      - youtu.be
+      - reddit.com
+      - discord.com
+      - discord.gg
+      - discordapp.com
+      - instagram.com
+      - facebook.com
+      - fb.com
+      - tiktok.com
+      - openai.com
+      - chat.openai.com
+      - platform.openai.com
+      - anthropic.com
+      - claude.ai
+      - perplexity.ai
+      - poe.com
+      - quora.com
+      - medium.com           # 部分地区需代理
+      - substack.com
+      - patreon.com
+      - kickstarter.com
+      - producthunt.com
+      - hackernews.ycombinator.com  # HN本身直连，但有时慢
+      - vercel.com
+      - netlify.com
+      - supabase.com
+      - render.com
+      - railway.app
+      - fly.io
+      - replit.com
+    patterns:
+      - "*.openai.com"
+      - "*.anthropic.com"
+      - "*.twitter.com"
+      - "*.x.com"
+
+# ========== 代理配置 ==========
+proxy:
+  enabled: true
+  http_proxy: "http://127.0.0.1:10808"
+  https_proxy: "http://127.0.0.1:10808"
+  # Node.js特殊配置
+  node:
+    global_agent_http: "http://127.0.0.1:10808"
+    global_agent_https: "http://127.0.0.1:10808"
+
+# ========== 工具优先级 ==========
+tool_priority:
+  # 搜索场景
+  search:
+    primary: "tavily-search"
+    fallback: ["websearch"]
+    conditions:
+      - when: "需要深度研究"
+        use: "tavily-research"
+
+  # 内容获取场景
+  fetch:
+    static:
+      primary: "webfetch"
+      fallback: ["tavily-extract", "agent-browser"]
+    dynamic:
+      primary: "mcp-router"
+      fallback: ["agent-browser", "opencli"]
+
+  # 浏览器场景（需要登录态）
+  browser:
+    primary: "mcp-router"
+    fallback: ["agent-browser"]
+
+# ========== 工具配置 ==========
+tools:
+  tavily:
+    timeout: 30
+    max_results: 10
+    depth: "basic"           # ultra-fast, fast, basic, advanced
+
+  webfetch:
+    timeout: 20
+    max_content_length: 100000
+
+  mcp_router:
+    timeout: 60
+    auto_connect: true
+
+  agent_browser:
+    timeout: 60
+    headless: true
+
+  opencli:
+    timeout: 45
+    adapter_check: true      # 检查adapter是否可用
+
+# ========== 决策规则 ==========
+routing_rules:
+  # 规则1: 搜索关键词
+  - id: "search_keyword"
+    pattern: "^(搜索|查找|查询|新闻|最新|什么是|怎么样).*"
+    action: "search"
+    priority: 1
+
+  # 规则2: 深度研究
+  - id: "deep_research"
+    pattern: "^(研究|分析|对比|调研|综述).*"
+    action: "research"
+    priority: 1
+
+  # 规则3: URL直连
+  - id: "url_direct"
+    condition: "url_in_direct_list AND is_static"
+    action: "fetch_direct"
+    priority: 1
+
+  # 规则4: URL代理
+  - id: "url_proxy"
+    condition: "url_in_proxy_list"
+    action: "fetch_with_proxy"
+    priority: 1
+
+  # 规则5: 批量爬取
+  - id: "bulk_crawl"
+    pattern: "(批量|爬取|抓取整个|所有页面)"
+    action: "crawl"
+    priority: 1
+
+# ========== 失败回退策略 ==========
+fallback_strategies:
+  "tavily-search":
+    on_api_error: "websearch"
+    on_rate_limit: "websearch"
+    on_timeout: "websearch"
+
+  "webfetch":
+    on_js_required: "tavily-extract"
+    on_blocked: "agent-browser"
+    on_timeout: "tavily-extract"
+
+  "tavily-extract":
+    on_blocked: "agent-browser"
+    on_timeout: "agent-browser"
+
+  "mcp-router":
+    on_not_connected: "agent-browser"
+    on_timeout: "agent-browser"
+    on_error: "agent-browser"
+
+  "opencli":
+    on_adapter_missing: "agent-browser"
+    on_error: "agent-browser"
+
+# ========== 学习记录 ==========
+learning:
+  enabled: true
+  log_file: "decisions.log"
+  max_entries: 1000
+  auto_update_rules: true     # 高频决策自动更新规则
+  threshold_for_rule: 3       # 相同决策出现3次则固化为规则
